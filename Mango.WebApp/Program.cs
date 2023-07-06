@@ -20,9 +20,11 @@ builder.Services.AddHttpClient<ICouponService, CouponService>();
 //here we are populating our CouponAPIBase with CouponURL. This will retrieve the value and assign it
 // to CouponAPIBase at the time of when services are being configured
 SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPIBase"];
 
 
 builder.Services.AddScoped<IBaseService, BaseService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 
 
