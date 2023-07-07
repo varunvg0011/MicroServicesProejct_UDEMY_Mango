@@ -16,7 +16,7 @@ namespace Mango.WebApp.Service
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.CouponAPIBase + "/api/Auth/AssignRole",
+                Url = SD.AuthAPIBase + "/api/auth/AssignRole",
                 Data = regRequestDTO
             });
         }
@@ -26,14 +26,19 @@ namespace Mango.WebApp.Service
             return await _baseService.SendAsync(new RequestDTO()
             {
                 ApiType = SD.ApiType.POST,
-                Url = SD.CouponAPIBase + "/api/auth/login",
+                Url = SD.AuthAPIBase + "/api/auth/login",
                 Data = loginRequestDTO
             });
         }
 
         public async Task<ResponseDTO?> RegisterAsync(RegisterRequestDTO regRequestDTO)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDTO()
+            {
+                ApiType = SD.ApiType.POST,
+                Url = SD.AuthAPIBase + "/api/auth/register",
+                Data = regRequestDTO
+            });
         }
     }
 }

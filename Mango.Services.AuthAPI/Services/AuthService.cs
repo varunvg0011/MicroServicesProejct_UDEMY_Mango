@@ -68,7 +68,7 @@ namespace Mango.Services.AuthAPI.Services
             {
                 //GetAwaiter().GetResult() is added to make this synchronous as the func is async and we dont
                 //want to use await here
-                if (_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
                 {
                     //create role if does not exist
                     _roleManager.CreateAsync(new IdentityRole(roleName)).GetAwaiter().GetResult();
